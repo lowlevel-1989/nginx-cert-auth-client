@@ -1,0 +1,19 @@
+### Configuración de nginx para Auth con certificados
+
+Que realiza esta configuración ?
+
+1.- El inicio de sesión se realiza en una ruta en especifico.
+2.- La autenticación es basada en certificados.
+3.- El certificado se envia al backend por medio de cookie.
+4.- No es posible cerrar sesion, para ello es necesario actualizar la pagina.
+5.- No es una solución soportada oficialmente por nginx.
+6.- Esta separado por subdominios el servicio de auth por certificado y el aplicativo.
+7.- Ambos servers comparten una key para cifrar los datos para establecer el auth.
+8.- Requiere lua si requiren hacerlo compatible con Apache.
+9.- Requiere lua si el aplicativo require el certificado en formato Apache.
+
+
+Si tiene varios certificados de cliente, simplemente concatenelos en un solo archivo:
+~~~
+$ cat cert1.crt cert2.crt > certs.pem
+~~~
